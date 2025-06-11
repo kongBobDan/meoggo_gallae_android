@@ -45,4 +45,4 @@ val Gray900 = Color(0xFF3D403D)
 
 // Point Colors
 val PointBrown = Color(0xFF251605)
-val PointGray = Color(0xFF3F403F)
+val PointGray = Color(0xFF1A1A1A)

@@ -41,6 +41,26 @@ android {
 
 dependencies {
 
+    // --- 네트워킹 (Retrofit, Gson) ---
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // --- 네비게이션 컴포즈 ---
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
+
+    // --- Jetpack Compose 관련 ---
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
+
+    // --- Material Design 컴포즈 ---
+    implementation("androidx.compose.material:material:1.6.5")
+    implementation("androidx.compose.material3:material3:1.3.2")
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.2")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.4.0-alpha13")
+
+    //기존
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

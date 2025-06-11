@@ -12,67 +12,110 @@ val pretendard_medium = FontFamily(Font(R.font.pretendard_medium))
 val pretendard_regular = FontFamily(Font(R.font.pretendard_regular))
 val pretendard_bold = FontFamily(Font(R.font.pretendard_bold))
 val pretendard_semibold = FontFamily(Font(R.font.pretendard_semibold))
-//val inter_bold = FontFamily(Font(R.font.inter_bold))
-//val inter_semibold = FontFamily(Font(R.font.inter_semibold))
 
-// Set of Material typography styles to start with
 val Typography = Typography(
-
-
-    // Title
-    titleLarge = TextStyle( // Title 1 Bold
+    bodyLarge = TextStyle( // Body / Default
+        fontFamily = pretendard_regular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp
+    ),
+    bodyMedium = TextStyle( // Body / Bold
+        fontFamily = pretendard_semibold,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 17.sp
+    ),
+    displayLarge = TextStyle( // Title 1 / Default
+        fontFamily = pretendard_regular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 28.sp
+    ),
+    displayMedium = TextStyle( // Title 1 / Bold
         fontFamily = pretendard_bold,
         fontWeight = FontWeight.Bold,
         fontSize = 28.sp
     ),
-    titleMedium = TextStyle( // Title 2 Bold
+    headlineLarge = TextStyle( // Large Body Copy / Default
+        fontFamily = pretendard_regular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 22.sp
+    ),
+    headlineMedium = TextStyle( // Large Body Copy / Bold
+        fontFamily = pretendard_semibold,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 22.sp
+    ),
+    titleLarge = TextStyle( // Title 2 / Default
+        fontFamily = pretendard_regular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 22.sp
+    ),
+    titleMedium = TextStyle( // Title 2 / Bold
+        fontFamily = pretendard_bold,
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp
     ),
-    titleSmall = TextStyle( // Title 3 Bold
+    titleSmall = TextStyle( // Title 3 / Default
+        fontFamily = pretendard_regular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp
+    ),
+    labelLarge = TextStyle( // Title 3 / Bold
+        fontFamily = pretendard_semibold,
         fontWeight = FontWeight.SemiBold,
         fontSize = 20.sp
     ),
-
-    // Body
-    bodyLarge = TextStyle( // Large Body Copy Bold
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 22.sp
-    ),
-    bodyMedium = TextStyle( // Body Bold
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 17.sp
-    ),
-    bodySmall = TextStyle( // Callout Bold
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 16.sp
-    ),
-
-    // Caption
-    labelLarge = TextStyle( // Caption 1 Bold
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 12.sp
-    ),
-    labelMedium = TextStyle( // Caption 2 Bold
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp
-    ),
-    labelSmall = TextStyle( // Footnote Bold
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 13.sp
-    ),
-
-    // Buttons
-    headlineSmall = TextStyle( // Button / Small Text
-        fontWeight = FontWeight.Medium,
-        fontSize = 16.sp
-    ),
-    headlineMedium = TextStyle( // Button / Text
+    labelMedium = TextStyle( // Button / Text
+        fontFamily = pretendard_medium,
         fontWeight = FontWeight.Medium,
         fontSize = 20.sp
     ),
-    headlineLarge = TextStyle( // Button / Icon
+    labelSmall = TextStyle( // Button / Small Text or Overline 역할
+        fontFamily = pretendard_medium,
         fontWeight = FontWeight.Medium,
-        fontSize = 23.sp
-    )
+        fontSize = 16.sp
+    ),
+    bodySmall = TextStyle( // Callout / Default or Caption 역할
+        fontFamily = pretendard_regular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
 )
+
+// Non-standard styles (Caption1, Caption2, Footnote)는 별도로 정의하면 됩니다:
+
+val Caption1_Default = TextStyle(
+    fontFamily = pretendard_regular,
+    fontWeight = FontWeight.Normal,
+    fontSize = 12.sp
+)
+
+val Caption1_Bold = TextStyle(
+    fontFamily = pretendard_semibold,
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 12.sp
+)
+
+val Caption2_Default = TextStyle(
+    fontFamily = pretendard_regular,
+    fontWeight = FontWeight.Normal,
+    fontSize = 11.sp
+)
+
+val Caption2_Bold = TextStyle(
+    fontFamily = pretendard_medium,
+    fontWeight = FontWeight.Medium,
+    fontSize = 11.sp
+)
+
+val Footnote_Default = TextStyle(
+    fontFamily = pretendard_regular,
+    fontWeight = FontWeight.Normal,
+    fontSize = 13.sp
+)
+
+val Footnote_Bold = TextStyle(
+    fontFamily = pretendard_semibold,
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 13.sp
+)
+
