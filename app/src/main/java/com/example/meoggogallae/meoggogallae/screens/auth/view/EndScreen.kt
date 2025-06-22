@@ -20,14 +20,19 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.meoggogallae.R
 import com.example.meoggogallae.meoggogallae.screens.util.DarkButton
 import com.example.meoggogallae.meoggogallae.screens.util.WhiteButton
 import com.example.meoggogallae.ui.theme.Background100
 import com.example.meoggogallae.ui.theme.Typography
+import com.nohjason.minari.navigation.Screen
+import com.nohjason.minari.navigation.Screens
 
 @Composable
-fun EndScreen() {
+fun EndScreen(
+    navController: NavController,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -72,7 +77,9 @@ fun EndScreen() {
         ) {
             DarkButton(
                 text = "바로 시작하기",
-                onClick = {},
+                onClick = {
+                    navController.navigate(route = Screens.Home.route)
+                },
                 modifier = Modifier.fillMaxWidth()
             )
         }
@@ -80,8 +87,8 @@ fun EndScreen() {
 }
 
 
-@Preview
-@Composable
-fun PreEndScreen(){
-    EndScreen()
-}
+//@Preview
+//@Composable
+//fun PreEndScreen(){
+//    EndScreen()
+//}

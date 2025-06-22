@@ -35,12 +35,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.meoggogallae.R
 import com.example.meoggogallae.meoggogallae.screens.util.ChatBubble
 import com.example.meoggogallae.ui.theme.Background200
 
 @Composable
 fun MenuCompareScreen(
+    navController: NavController,
     leftMenu: String = "분식세트",
     rightMenu: String = "짜장면",
     lectureNumber: String = "27강",
@@ -184,8 +186,8 @@ fun MenuCompareScreen(
 }
 
 
-@Preview
-@Composable
-fun PreMwnuCompareScreen(){
-    MenuCompareScreen()
-}
+//@Preview
+//@Composable
+//fun PreMwnuCompareScreen(){
+//    MenuCompareScreen()
+//}

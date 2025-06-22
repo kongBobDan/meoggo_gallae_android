@@ -33,15 +33,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.meoggogallae.R
 import com.example.meoggogallae.meoggogallae.screens.util.DarkButton
 import com.example.meoggogallae.meoggogallae.screens.util.MeoggoGallaeDropdown
 import com.example.meoggogallae.ui.theme.Background200
 import com.example.meoggogallae.ui.theme.Background800
 import com.example.meoggogallae.ui.theme.Typography
+import com.nohjason.minari.navigation.Screens
 
 @Composable
-fun SelectMainScreen() {
+fun SelectMainScreen(
+    navController: NavController,
+) {
     // 더미 메뉴 리스트
     Box(
         modifier = Modifier
@@ -123,7 +127,9 @@ fun SelectMainScreen() {
         ) {
             DarkButton(
                 text = "시작하기",
-                onClick = { /* TODO: 다음 화면 이동 등 액션 */ },
+                onClick = {
+                    navController.navigate(route = Screens.Menu.route)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp)
@@ -133,8 +139,8 @@ fun SelectMainScreen() {
 }
 
 
-@Preview
-@Composable
-fun PreSelectMainScreen(){
-    SelectMainScreen()
-}
+//@Preview
+//@Composable
+//fun PreSelectMainScreen(){
+//    SelectMainScreen()
+//}

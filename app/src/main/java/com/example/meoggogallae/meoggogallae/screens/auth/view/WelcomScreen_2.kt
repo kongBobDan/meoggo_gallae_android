@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,15 +22,27 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.meoggogallae.R
 import com.example.meoggogallae.meoggogallae.screens.util.DarkButton
 import com.example.meoggogallae.meoggogallae.screens.util.WhiteButton
+import com.nohjason.minari.navigation.Screen
+import com.nohjason.minari.navigation.Screens
+import kotlinx.coroutines.delay
 
 @Composable
 fun WelcomScreen_2(
+    navController: NavController,
     text: String
 ){
     val isSpecialText = text == "너무하네.. 정말...\n그래도 먹고갈래는 해줄꺼지?"
+
+    if (!isSpecialText) {
+        LaunchedEffect(Unit) {
+            delay(3000)  // 3초 대기
+            navController.navigate(route = Screens.End.route)
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -77,7 +90,28 @@ fun WelcomScreen_2(
                 ) {
                     DarkButton(
                         text = "당연하지!",
-                        onClick = {},
+                        onClick = {
+                            navController.navigate(route = Screens.End.route)
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            }
+        } else{
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(horizontal = 40.dp)
+                    .padding(bottom = 48.dp)
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    DarkButton(
+                        text = "그래!",
+                        onClick = {
+                            navController.navigate(route = Screens.End.route)
+                        },
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
@@ -86,10 +120,10 @@ fun WelcomScreen_2(
     }
 }
 
-@Preview
-@Composable
-fun PreWelcomeScreen_2(){
-    WelcomScreen_2(
-        text = "너무하네.. 정말...\n그래도 먹고갈래는 해줄꺼지?"
-    )
-}
+//@Preview
+//@Composable
+//fun PreWelcomeScreen_2(){
+//    WelcomScreen_2(
+//        text = "너무하네.. 정말...\n그래도 먹고갈래는 해줄꺼지?"
+//    )
+//}

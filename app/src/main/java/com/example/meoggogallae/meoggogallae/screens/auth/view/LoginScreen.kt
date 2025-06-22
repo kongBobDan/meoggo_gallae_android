@@ -38,14 +38,17 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.meoggogallae.meoggogallae.screens.util.DarkButton
 import com.example.meoggogallae.ui.theme.Typography
+import com.nohjason.minari.navigation.Screens
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import java.time.format.TextStyle
 
 @Composable
 fun LoginScreen(
+    navController: NavController,
     onComplete: (grade: String, classNum: String, studentNum: String) -> Unit = { _, _, _ -> }
 ) {
     val grades = (1..3).map { it.toString() }
@@ -117,7 +120,9 @@ fun LoginScreen(
         DarkButton(
             text = "입력완료",
             modifier = Modifier.fillMaxWidth(),
-            onClick = {}
+            onClick = {
+                navController.navigate(route = Screens.Welcom_2.route)
+            }
         )
     }
 
@@ -242,8 +247,8 @@ class PickerState {
 
 
 
-@Preview
-@Composable
-fun PreLogin(){
-    LoginScreen()
-}
+//@Preview
+//@Composable
+//fun PreLogin(){
+//    LoginScreen()
+//}

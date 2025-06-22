@@ -1,6 +1,7 @@
 package com.example.meoggogallae.meoggogallae.screens.home.view
 
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,12 +39,14 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.meoggogallae.R
 import com.example.meoggogallae.ui.theme.Background100
 import com.example.meoggogallae.ui.theme.Background200
@@ -57,9 +60,15 @@ import com.example.meoggogallae.ui.theme.PointGray
 import com.example.meoggogallae.ui.theme.Primary400
 import com.example.meoggogallae.ui.theme.Primary800
 import com.example.meoggogallae.ui.theme.Typography
+import com.nohjason.minari.navigation.Screen
+import com.nohjason.minari.navigation.Screens
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navController: NavController,
+) {
+    val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -86,12 +95,18 @@ fun HomeScreen() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(1.6f)
-                    .clickable {  },
+                    .clickable {
+                        navController.navigate(route = Screens.Select.route)
+                    },
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            CameraButton()
+            CameraButton(
+                onClick = {
+                    Toast.makeText(context, "AI기능이 개발되어있지 않습니다.", Toast.LENGTH_SHORT).show()
+                }
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
@@ -301,8 +316,8 @@ fun DonutChart(
 
 
 
-@Preview
-@Composable
-fun PreHomewScreen(){
-    HomeScreen()
-}
+//@Preview
+//@Composable
+//fun PreHomewScreen(){
+//    HomeScreen()
+//}

@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,15 +24,28 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.meoggogallae.R
 import com.example.meoggogallae.meoggogallae.screens.util.DarkButton
 import com.example.meoggogallae.meoggogallae.screens.util.WhiteButton
+import com.nohjason.minari.navigation.Screen
+import com.nohjason.minari.navigation.Screens
+import kotlinx.coroutines.delay
 
 @Composable
 fun WelcomeScreen(
+    navController: NavController,
     text: String,
 ) {
     val isSpecialText = text == "난 DG고새라고해!\n앞으로 잘부탁해."
+
+    // isSpecialText가 false일 때 3초 후에 화면 이동
+    if (!isSpecialText) {
+        LaunchedEffect(Unit) {
+            delay(3000)  // 3초 대기
+            navController.navigate(route = Screens.Welcom_2.route)
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -79,13 +93,15 @@ fun WelcomeScreen(
                 ) {
                     DarkButton(
                         text = "잘 부탁해!",
-                        onClick = {},
+                        onClick = {
+
+                        },
                         modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(modifier = Modifier.height(10.dp))
                     WhiteButton(
                         text = "뭐야 이 징그러운건;",
-                        onClick = {},
+                        onClick = { navController.navigate(route = Screens.Welcom2.route) },
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
@@ -98,10 +114,10 @@ fun WelcomeScreen(
 
 
 
-@Preview
-@Composable
-fun PreWelcomeScreen(){
-    WelcomeScreen(
-        text = "난 DG고새라고해!\n앞으로 잘부탁해."
-    )
-}
+//@Preview
+//@Composable
+//fun PreWelcomeScreen(){
+//    WelcomeScreen(
+//        text = "난 DG고새라고해!\n앞으로 잘부탁해."
+//    )
+//}
